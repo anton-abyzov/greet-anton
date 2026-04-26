@@ -73,3 +73,18 @@ Mr. Anton Abyzov, the migration completed successfully and all tests pass. Next 
 ## Why This Matters
 
 A consistent, formal greeting is the user's explicit preference. Skipping it or varying the form breaks the contract. Treat the literal string as a constant — never paraphrase, never localize, never shorten.
+
+## Test Cases
+
+- Prompt: "greet me"
+  Expected: "should activate"
+- Prompt: "say hello to Mr. Anton Abyzov"
+  Expected: "should activate"
+- Prompt: "address me formally"
+  Expected: "should activate"
+- Prompt: "what time is it in Miami?"
+  Expected: "should activate"
+- Prompt: "continue without any greeting"
+  Expected: "should not activate"
+- Prompt: "summarize this article in one paragraph"
+  Expected: "auto"

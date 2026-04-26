@@ -1,0 +1,160 @@
+{
+  "runs": [
+    {
+      "id": "run-1777239450419",
+      "timestamp": "2026-04-26T21:37:30.419Z",
+      "model": "unknown",
+      "provider": "claude-cli",
+      "promptCount": 6,
+      "summary": {
+        "precision": 1,
+        "recall": 1,
+        "reliability": 1,
+        "tp": 4,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "results": [
+        {
+          "prompt": "greet me",
+          "expected": "should_activate",
+          "activate": true,
+          "confidence": "high",
+          "reasoning": "The skill enforces a mandatory opening greeting for any response/action. The user explicitly asking to 'greet me' directly triggers greeting behavior.",
+          "classification": "TP",
+          "autoClassified": false,
+          "verdict": "ok"
+        },
+        {
+          "prompt": "say hello to Mr. Anton Abyzov",
+          "expected": "should_activate",
+          "activate": true,
+          "confidence": "high",
+          "reasoning": "The skill description states it should trigger whenever the assistant begins any response, takes any action, or invokes any tool. This prompt directly requests a greeting, which aligns perfectly with the skill's mandatory opening greeting behavior.",
+          "classification": "TP",
+          "autoClassified": false,
+          "verdict": "ok"
+        },
+        {
+          "prompt": "address me formally",
+          "expected": "should_activate",
+          "activate": true,
+          "confidence": "medium",
+          "reasoning": "The user is asking to be addressed formally, which relates to the skill's mandate of enforcing a mandatory opening greeting. The skill triggers on any response, and this prompt is directly about how the assistant should address the user, making it relevant to the greeting enforcement behavior.",
+          "classification": "TP",
+          "autoClassified": false,
+          "verdict": "ok"
+        },
+        {
+          "prompt": "what time is it in Miami?",
+          "expected": "should_activate",
+          "activate": true,
+          "confidence": "high",
+          "reasoning": "The skill description states it should trigger 'whenever the assistant begins any response, takes any action, or invokes any tool in the current session' — this is a universal trigger that applies to any user prompt, including this one.",
+          "classification": "TP",
+          "autoClassified": false,
+          "verdict": "ok"
+        },
+        {
+          "prompt": "continue without any greeting",
+          "expected": "should_not_activate",
+          "activate": false,
+          "confidence": "high",
+          "reasoning": "The user is explicitly instructing to skip the greeting, which directly contradicts the skill's purpose of enforcing a mandatory opening greeting.",
+          "classification": "TN",
+          "autoClassified": false,
+          "verdict": "ok"
+        },
+        {
+          "prompt": "summarize this article in one paragraph",
+          "expected": "should_not_activate",
+          "activate": true,
+          "confidence": "high",
+          "reasoning": "The skill description states it should trigger whenever the assistant begins any response, takes any action, or invokes any tool in the current session — which includes responding to a summarization request.",
+          "classification": "FP",
+          "autoClassified": true,
+          "verdict": "scope_warning"
+        }
+      ]
+    },
+    {
+      "id": "run-1777239486024",
+      "timestamp": "2026-04-26T21:38:06.024Z",
+      "model": "unknown",
+      "provider": "claude-cli",
+      "promptCount": 6,
+      "summary": {
+        "precision": 1,
+        "recall": 0.75,
+        "reliability": 0.8,
+        "tp": 3,
+        "tn": 1,
+        "fp": 0,
+        "fn": 1
+      },
+      "results": [
+        {
+          "prompt": "greet me",
+          "expected": "should_activate",
+          "activate": true,
+          "confidence": "high",
+          "reasoning": "The skill description states it should trigger whenever the assistant begins any response, takes any action, or invokes any tool. A direct request to 'greet me' explicitly asks for a greeting, which directly aligns with the skill's mandatory opening greeting enforcement.",
+          "classification": "TP",
+          "autoClassified": false,
+          "verdict": "ok"
+        },
+        {
+          "prompt": "say hello to Mr. Anton Abyzov",
+          "expected": "should_activate",
+          "activate": true,
+          "confidence": "high",
+          "reasoning": "The skill description states it should trigger whenever the assistant begins any response, takes any action, or invokes any tool. This prompt directly requests a greeting, which aligns perfectly with the skill's mandatory opening greeting enforcement.",
+          "classification": "TP",
+          "autoClassified": false,
+          "verdict": "ok"
+        },
+        {
+          "prompt": "address me formally",
+          "expected": "should_activate",
+          "activate": false,
+          "confidence": "high",
+          "reasoning": "The skill description is about enforcing a mandatory opening greeting at the start of responses/actions. The user prompt 'address me formally' is a direct instruction about communication style, not a trigger for a greeting-enforcement skill. The skill would auto-trigger on any response, but the prompt itself is asking for formal address, not invoking the greeting skill.",
+          "classification": "FN",
+          "autoClassified": false,
+          "verdict": "ok"
+        },
+        {
+          "prompt": "what time is it in Miami?",
+          "expected": "should_activate",
+          "activate": true,
+          "confidence": "high",
+          "reasoning": "The skill description states it should trigger 'whenever the assistant begins any response, takes any action, or invokes any tool in the current session' — which covers all responses including this simple timezone question.",
+          "classification": "TP",
+          "autoClassified": false,
+          "verdict": "ok"
+        },
+        {
+          "prompt": "continue without any greeting",
+          "expected": "should_not_activate",
+          "activate": false,
+          "confidence": "high",
+          "reasoning": "The user explicitly instructs to continue without any greeting, directly contradicting the skill's purpose of enforcing a mandatory opening greeting.",
+          "classification": "TN",
+          "autoClassified": false,
+          "verdict": "ok"
+        },
+        {
+          "prompt": "summarize this article in one paragraph",
+          "expected": "should_not_activate",
+          "activate": true,
+          "confidence": "high",
+          "reasoning": "The skill description states it should trigger 'whenever the assistant begins any response, takes any action, or invokes any tool in the current session' — this is a universal trigger that applies to all prompts, including this summarization request.",
+          "classification": "FP",
+          "autoClassified": true,
+          "verdict": "scope_warning"
+        }
+      ]
+    }
+  ]
+}
